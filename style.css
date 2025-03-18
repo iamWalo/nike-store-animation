@@ -5,9 +5,9 @@
 }
 
 body {
-    overflow-x: hidden;
-    background-color: #d30205;
+    overflow: hidden;
     position: relative;
+
 }
 
 button {
@@ -72,17 +72,45 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 35px;
-
+    padding: 113px 55px;
+    padding-bottom: 80px;
 }
 
 .main-section img {
-    position: relative;
-    width: 589.785px;
-    margin-left: -13rem;
+    position: absolute;
+
     z-index: 23;
+    animation: show-img-from-top 1.5s;
 }
 
+.red-jordan {
+    top: 30px;
+    left: 29%;
+    width: 575px;
+}
+
+.blue-jordan {
+    width: 712px;
+    top: -80px;
+    left: 24%;
+}
+
+.green-jordan {
+    top: -37px;
+    left: 26%;
+    width: 703px;
+}
+
+@keyframes show-img-from-top {
+    0% {
+        display: none;
+        top: -200%;
+    }
+
+    100% {
+        display: flex;
+    }
+}
 
 .small-title {
     color: #FFF;
@@ -156,26 +184,47 @@ a {
 }
 
 .line:nth-child(1) {
-    height: 650px;
+    height: 640px;
     top: -36%;
     left: 42.5%;
+    animation: show-from-top 1.6s ease;
 }
 
 .line:nth-child(2) {
     top: -35%;
     left: 46.5%;
+    animation: show-from-top 2s ease;
 }
 
 .line:nth-child(3) {
     top: -35%;
     left: 50.5%;
+    animation: show-from-top 2s ease;
 }
 
 .line:nth-child(4) {
     top: -35%;
     left: 54.5%;
+    animation: show-from-top 2s ease;
 }
 
+@keyframes show-from-top {
+    0% {
+        display: none;
+        top: -200%;
+        opacity: 0;
+    }
+
+    100% {
+        display: flex;
+        top: -35%;
+        opacity: 1;
+    }
+}
+
+.right-content {
+    margin-right: 3rem;
+}
 
 .select-clr-title,
 .select-size-title {
@@ -207,6 +256,13 @@ a {
     justify-content: center;
     align-items: center;
     border: 1.16px solid #CBCBCB;
+    transition: all .7s;
+}
+
+.size:hover {
+    color: #000;
+    background-color: #fff;
+    border: 1.16px solid #575757;
 }
 
 .select-clr-btn {
@@ -217,15 +273,15 @@ a {
     margin-right: 10px;
 }
 
-.select-clr-btn.red {
+.select-clr-btn.red-btn {
     background-color: #FF0006;
 }
 
-.select-clr-btn.bleu {
+.select-clr-btn.blue-btn {
     background-color: #0058B8;
 }
 
-.select-clr-btn.green {
+.select-clr-btn.green-btn {
     background-color: #03602A;
 }
 
