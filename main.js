@@ -1,4 +1,11 @@
+//loading
+window.addEventListener("load", function () {
+    // إخفاء شاشة التحميل بعد تحميل جميع العناصر
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("content").style.display = "block";
+});
 
+// animation
 const redBtn = document.querySelector('.red-btn');
 const blueBtn = document.querySelector('.blue-btn');
 const greenBtn = document.querySelector('.green-btn');
