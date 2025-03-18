@@ -18,8 +18,8 @@ if (storageColor === '#b40003') {
     storageColor = 'red';
 }
 jordanImg.src = `./images/${storageColor}-jordan.png`;
-
 jordanImg.className = `${storageColor}-jordan`;
+jordanImg.style.opacity = 1;
 
 
 let red = "#b40003";
