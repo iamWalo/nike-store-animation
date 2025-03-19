@@ -1,9 +1,9 @@
 // //loading
-// window.addEventListener("load", function () {
-//     // إخفاء شاشة التحميل بعد تحميل جميع العناصر
-//     document.getElementById("loader").style.display = "none";
-//     document.getElementById("content").style.display = "block";
-// });
+window.addEventListener("load", function () {
+    // إخفاء شاشة التحميل بعد تحميل جميع العناصر
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("content").style.display = "block";
+});
 
 // // animation
 // const redBtn = document.querySelector('.red-btn');
