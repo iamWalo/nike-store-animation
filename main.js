@@ -96,7 +96,6 @@ window.addEventListener("load", function () {
     document.getElementById("loader").style.display = "none";
     document.getElementById("content").style.display = "block";
 });
-const line = document.querySelector('.line')
 const redBtn = document.querySelector('.red-btn');
 const blueBtn = document.querySelector('.blue-btn');
 const greenBtn = document.querySelector('.green-btn');
@@ -126,7 +125,7 @@ const changeColor = (newColor) => {
     jordanImg.src = `./images/${newColor}-jordan.png`;
     jordanImg.className = `${newColor}-jordan`;
     location.reload();
-    line.style.opacity = 0;
+
 };
 
 redBtn.addEventListener('click', () => changeColor('red'));
@@ -134,19 +133,15 @@ blueBtn.addEventListener('click', () => changeColor('blue'));
 greenBtn.addEventListener('click', () => changeColor('green'));
 
 next.addEventListener('click', () => {
-
     jordanImg.style.opacity = 0;
     counter = (counter + 1) % colors.length;
     changeColor(colors[counter]);
     location.reload();
-
 });
 
 prev.addEventListener('click', () => {
-
     jordanImg.style.opacity = 0;
     counter = (counter - 1 + colors.length) % colors.length;
     changeColor(colors[counter]);
     location.reload();
-    line.style.opacity = 0;
 });
