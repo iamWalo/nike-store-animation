@@ -1,9 +1,9 @@
-// loading
-window.addEventListener("load", function () {
-    // إخفاء شاشة التحميل بعد تحميل جميع العناصر
-    document.getElementById("loader").style.display = "none";
-    document.getElementById("content").style.display = "block";
-});
+// //loading
+// window.addEventListener("load", function () {
+//     // إخفاء شاشة التحميل بعد تحميل جميع العناصر
+//     document.getElementById("loader").style.display = "none";
+//     document.getElementById("content").style.display = "block";
+// });
 
 // // animation
 // const redBtn = document.querySelector('.red-btn');
@@ -90,11 +90,13 @@ window.addEventListener("load", function () {
 // });
 
 
+
+
 window.addEventListener("load", function () {
     document.getElementById("loader").style.display = "none";
     document.getElementById("content").style.display = "block";
 });
-
+const line = document.querySelector('.line')
 const redBtn = document.querySelector('.red-btn');
 const blueBtn = document.querySelector('.blue-btn');
 const greenBtn = document.querySelector('.green-btn');
@@ -102,16 +104,13 @@ const jordanImg = document.querySelector('.jordan-img');
 const next = document.querySelector('.next');
 const prev = document.querySelector('.prev');
 
-const colorMap = {
-    blue: "blue",
-    red: "#b40003",
-    green: "green"
+let storageColor = localStorage.getItem("color") || 'red';
+
+if (storageColor === '#b40003') {
+    storageColor = 'red'
 };
 
-let storageColor = localStorage.getItem("color") || 'red';
-if (storageColor === '#b40003') storageColor = 'red';
-
-document.body.style.backgroundColor = colorMap[storageColor];
+document.body.style.backgroundColor = storageColor;
 jordanImg.src = `./images/${storageColor}-jordan.png`;
 jordanImg.className = `${storageColor}-jordan`;
 jordanImg.style.opacity = 1;
@@ -121,11 +120,13 @@ const colors = ['blue', 'red', 'green'];
 let counter = colors.indexOf(storageColor);
 
 const changeColor = (newColor) => {
+    jordanImg.style.opacity = 0;
     localStorage.setItem('color', newColor);
-    document.body.style.backgroundColor = colorMap[newColor];
+    document.body.style.backgroundColor = newColor;
     jordanImg.src = `./images/${newColor}-jordan.png`;
     jordanImg.className = `${newColor}-jordan`;
     location.reload();
+    line.style.opacity = 0;
 };
 
 redBtn.addEventListener('click', () => changeColor('red'));
@@ -133,13 +134,19 @@ blueBtn.addEventListener('click', () => changeColor('blue'));
 greenBtn.addEventListener('click', () => changeColor('green'));
 
 next.addEventListener('click', () => {
+
+    jordanImg.style.opacity = 0;
     counter = (counter + 1) % colors.length;
     changeColor(colors[counter]);
     location.reload();
+
 });
 
 prev.addEventListener('click', () => {
+
+    jordanImg.style.opacity = 0;
     counter = (counter - 1 + colors.length) % colors.length;
     changeColor(colors[counter]);
     location.reload();
+    line.style.opacity = 0;
 });
