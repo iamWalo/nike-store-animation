@@ -80,12 +80,11 @@ const greenBtn = document.querySelector('.green-btn');
 const jordanImg = document.querySelector('.jordan-img');
 const next = document.querySelector('.next');
 const prev = document.querySelector('.prev');
-const lines = document.querySelectorAll('#line');
+const lines = document.querySelectorAll('.line');
 
-// التحقق مما إذا كانت الصفحة قد تم إعادة تحميلها
 if (localStorage.getItem("reloadFlag") === "true") {
     localStorage.removeItem("reloadFlag");
-    lines.forEach((line) => line.classList.add('line')); // تفعيل الكود بعد إعادة التحميل
+    lines.forEach((line) => line.style.display = "block"); // تفعيل الكود بعد إعادة التحميل
 }
 
 // تحميل اللون المخزن
@@ -102,7 +101,9 @@ jordanImg.style.opacity = 1;
 const colors = ['blue', 'red', 'green'];
 let counter = colors.indexOf(storageColor);
 
+lines.forEach((line) => line.style.opacity = 1);
 const changeColor = (newColor) => {
+    lines.forEach((line) => line.style.opacity = 0);
     jordanImg.style.opacity = 0;
     localStorage.setItem('color', newColor);
     localStorage.setItem("reloadFlag", "true");
@@ -116,12 +117,14 @@ blueBtn.addEventListener('click', () => changeColor('blue'));
 greenBtn.addEventListener('click', () => changeColor('green'));
 
 next.addEventListener('click', () => {
+    lines.forEach((line) => line.style.opacity = 0);
     jordanImg.style.opacity = 0;
     counter = (counter + 1) % colors.length;
     changeColor(colors[counter]);
 });
 
 prev.addEventListener('click', () => {
+    lines.forEach((line) => line.style.opacity = 0);
     jordanImg.style.opacity = 0;
     counter = (counter - 1 + colors.length) % colors.length;
     changeColor(colors[counter]);
@@ -130,6 +133,4 @@ prev.addEventListener('click', () => {
 window.addEventListener("load", function () {
     document.getElementById("loader").style.display = "none";
     document.getElementById("content").style.display = "block";
-
-    lines.forEach((line) => line.classList = 'line');
 });
